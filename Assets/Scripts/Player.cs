@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_characterController.isGrounded || _heigthJump!=_maxHeigthJump)
         {
@@ -45,13 +45,13 @@ public class Player : MonoBehaviour
             _heigthJump = _maxHeigthJump;
             _animator.SetTrigger("Jump");
         }
-        else { _velosity.y += -9.8f * Time.deltaTime; }
+        else { _velosity.y += -9.8f * Time.fixedDeltaTime; }
 
-        if(_velosityX < 0) { _gameObjectModel.transform.rotation = Quaternion.EulerRotation(Vector3.up*Mathf.Deg2Rad*90); }
+        if(_velosityX < -0.01f) { _gameObjectModel.transform.rotation = Quaternion.EulerRotation(Vector3.up*Mathf.Deg2Rad*90); }
         else { _gameObjectModel.transform.rotation = Quaternion.EulerRotation(Vector3.up * Mathf.Deg2Rad * -90); }
         _velosity.x += _velosityX;
         _velosityX /= 2f;
-        _characterController.Move(_velosity * Time.deltaTime);
+        _characterController.Move(_velosity * Time.fixedDeltaTime);
         _velosity.x /= 1.05f;
         if (Camera.main.transform.position.y + Camera.main.pixelHeight * Camera.main.transform.position.z / 625 / 5 > transform.position.y)
         {
@@ -75,6 +75,7 @@ public class Player : MonoBehaviour
     {
         if(hit.collider.TryGetComponent<DestructCollision>(out var component))
         {
+            if(_velosity.y< 0)
             component.gameObject.SetActive(false);
         }
     }
