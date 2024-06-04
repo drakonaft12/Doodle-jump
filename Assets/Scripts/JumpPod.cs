@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class JumpPod : MonoBehaviour
 {
+    float _height;
+    private void Start()
+    {
+        _height = (31f / 1920 / 25) * Camera.main.pixelHeight * -Camera.main.transform.position.z / 2;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<Player>(out var player))
@@ -14,7 +19,7 @@ public class JumpPod : MonoBehaviour
 
     private void Update()
     {
-        if (Camera.main.transform.position.y + Camera.main.pixelHeight * Camera.main.transform.position.z / 625 / 5 > transform.position.y)
+        if (Camera.main.transform.position.y - _height > transform.position.y)
         {
             gameObject.SetActive(false);
         }

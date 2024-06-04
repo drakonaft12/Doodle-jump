@@ -10,13 +10,9 @@ public class Spawner : MonoBehaviour
     private Dictionary<int, List<GameObject>> allSpawnObjects = new Dictionary<int, List<GameObject>>();
 
 
-    public static Spawner me;
     private void Awake()
     {
-        if(me == null)
-        {
-        me = this;
-        }
+        
         dictionaryPrefabs = prefabs.returnDictionary();
         foreach (var item in prefabs.items)
         {

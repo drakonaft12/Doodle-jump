@@ -135,13 +135,17 @@ PrefabInstance:
       propertyPath: m_ProvidesContacts
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 356385831014399959, guid: 967b01b19ed04864f92a22f49dfd8721, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 719163214065306507, guid: 967b01b19ed04864f92a22f49dfd8721, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.23896907
       objectReference: {fileID: 0}
     - target: {fileID: 719163214065306507, guid: 967b01b19ed04864f92a22f49dfd8721, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1658454
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 719163214065306507, guid: 967b01b19ed04864f92a22f49dfd8721, type: 3}
       propertyPath: m_LocalPosition.z
@@ -179,7 +183,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1671097331127432926, guid: 967b01b19ed04864f92a22f49dfd8721, type: 3}
+      propertyPath: m_Center.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876468517597312693, guid: 967b01b19ed04864f92a22f49dfd8721, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 356385831014399959, guid: 967b01b19ed04864f92a22f49dfd8721, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -464,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 321805708}
+  spawner: {fileID: 1076124942}
 --- !u!1 &1516220151
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +611,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6626948070885577541, guid: b42186e2895a7f44b835e4675d8851eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116847520277247221, guid: b42186e2895a7f44b835e4675d8851eb, type: 3}
+      propertyPath: m_ProvidesContacts
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

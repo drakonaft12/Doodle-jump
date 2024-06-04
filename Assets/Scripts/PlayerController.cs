@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 60;
         _player = GetComponent<Player>();
     }
     private void Update()

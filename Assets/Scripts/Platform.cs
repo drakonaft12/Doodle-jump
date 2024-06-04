@@ -1,45 +1,23 @@
 using UnityEngine;
 
-[RequireComponent (typeof(BoxCollider))]
+[RequireComponent(typeof(BoxCollider))]
 public class Platform : MonoBehaviour
 {
-    Player _player;
-    BoxCollider[] _collider;
+    float _height;
+    float positionYCamera => Camera.main.transform.position.y;
     void Start()
     {
-        
-        _collider = GetComponents<BoxCollider> ();
+        _height = (31f / 1920 / 25) * Camera.main.pixelHeight * -Camera.main.transform.position.z / 2;
+
     }
 
-    public void Construct(Player player)
-    {
-        _player = player;
-    }
 
     private void Update()
     {
-         if(_player != null)
-        {
-            if(transform.position.y+(transform.localScale.y)*2<=_player.transform.position.y)
-            {
-                foreach (var item in _collider)
-                {
-                    item.enabled = true;
-                }
-            }
-            else 
-            {
-                foreach (var item in _collider)
-                {
-                    item.enabled = false;
-                }
-            }
-        }
 
-         if(Camera.main.transform.position.y + Camera.main.pixelHeight * Camera.main.transform.position.z / 625 /5 > transform.position.y) 
-        { 
-            gameObject.SetActive(false); 
+        if (positionYCamera - _height > transform.position.y)
+        {
+            gameObject.SetActive(false);
         }
     }
-
 }
